@@ -1514,6 +1514,7 @@ func (s *MemorySeriesStorage) writeMemorySeries(
 		if series.chunkDescsOffset < 0 {
 			persistErr = errors.New("dropped more chunks from persistence than from memory")
 			series.chunkDescsOffset = -1
+			return true
 		}
 	}
 	return false
